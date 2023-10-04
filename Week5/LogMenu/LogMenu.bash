@@ -1,12 +1,12 @@
 listIPs() {
-	printf '%s\n' $(cat "/var/log/apache2/access.log" | egrep -o "[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}" | sort --unique) > clientIPs.txt
+	printf '%s\n' $(cat "/var/log/apache2/access.log.1" | egrep -o "[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}" | sort --unique) > clientIPs.txt
 }
 #-----------------------------------------------------------------
 visitors() {
 	clientIPs=$(cat './clientIPs.txt')
 	date_filter=$(date +"%d/%b/%Y")
 	for line in $clientIPs; do
-		echo $(cat "/var/log/apache2/access.log" | grep "${date_filter}" | egrep -o $line | sort | uniq -c)
+		echo $(cat "/var/log/apache2/access.log.1" | grep "${date_filter}" | egrep -o $line | sort | uniq -c)
 	done
 }
 #-----------------------------------------------------------------
@@ -17,7 +17,7 @@ bad_clients() {
 	current_time_filter=$(date +"%H")
 	later_time_filter=$((current_time_filter+1))
 	for line in $clientIPs; do
-                bads=$(cat "/var/log/apache2/access.log" | egrep "${date_filter}:${current_time_filter}" | grep -e "400" -e "403" -e "404" | egrep -o $line | sort | uniq -c | awk ' {print $1 } ')
+                bads=$(cat "/var/log/apache2/access.log.1" | egrep "${date_filter}:${current_time_filter}" | grep -e "400" -e "403" -e "404" | egrep -o $line | sort | uniq -c | awk ' {print $1 } ')
 		if [[ $bads > 3 ]]
 		then
 			echo $line>>blacklisted.txt
