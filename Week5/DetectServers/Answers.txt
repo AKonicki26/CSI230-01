@@ -1,0 +1,4 @@
+1. When you are able to access a website, you get the code 200.
+2. You would get the 403 error, since you had connected to the server
+but it won't give you the webpage specifically
+3. Yes, if the page does not exist, you get the 404 error code.
