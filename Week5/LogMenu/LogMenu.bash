@@ -27,15 +27,20 @@ bad_clients() {
 }
 #-----------------------------------------------------------------
 histogram() {
-	echo "This Does Nothing Yet 4"
+	printf "%s\n" $(cat "/var/log/apache2/access.log.1" | grep "200" | egrep -o "(0?[1-9]|[12][0-9]|3[01])/[A-Za-z]+/[0-9]+" | sort | uniq -c)
 }
 #-----------------------------------------------------------------
 block() {
-	echo "This Does Nothing Yet 5"
+	blacklist=$(cat "./blacklisted.txt")
+	for line in $blacklist; do
+		iptables -A INPUT -s $line -j DROP
+	done
+	iptables -L INPUT -v -n
 }
 #-----------------------------------------------------------------
 reset_blocks() {
-	echo "This Does Nothing Yet 6"
+	iptables -F
+	echo $(iptables -L INPUT -v -n)
 }
 #-----------------------------------------------------------------
 GetInput() {
