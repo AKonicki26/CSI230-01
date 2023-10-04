@@ -4,7 +4,6 @@
 192.168.3.148 - - [20/Sep/2023:13:35:23 -0400] "GET / HTTP/1.1" 200 3460 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"
 192.168.3.148 - - [20/Sep/2023:13:35:23 -0400] "GET /icons/ubuntu-logo.png HTTP/1.1" 200 3607 "http://192.168.3.42/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"
 192.168.3.148 - - [20/Sep/2023:13:35:23 -0400] "GET /favicon.ico HTTP/1.1" 404 490 "http://192.168.3.42/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"
-192.168.3.148 - - [20/Sep/2023:13:36:18 -0400] "-" 408 0 "-" "-"
 192.168.3.42 - - [20/Sep/2023:13:36:51 -0400] "GET /helloworld.txt HTTP/1.1" 404 435 "-" "curl/7.81.0"
 192.168.3.42 - - [20/Sep/2023:13:37:44 -0400] "GET / HTTP/1.1" 200 3460 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/116.0"
 192.168.3.42 - - [20/Sep/2023:13:37:44 -0400] "GET /icons/ubuntu-logo.png HTTP/1.1" 200 3607 "http://192.168.3.42/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/116.0"
