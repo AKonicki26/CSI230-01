@@ -1,0 +1,1 @@
+﻿Get-Process | where { !$_.ProcessName.Contains("system32") } | Select-Object ProcessName 
